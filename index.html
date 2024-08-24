@@ -210,6 +210,16 @@
             color: #f4f4f4;
         }
 
+        .date,
+        .time {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #444;
+            color: #fff;
+        }
+
         /* Animações */
         @keyframes fadeIn {
             from {
@@ -234,10 +244,10 @@
 </head>
 
 <body>
-    <header id="home" class="hero">
+    <header class="hero">
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
                 <li><a href="#services">Nossos Serviços</a></li>
                 <li><a href="#form-section">Agende uma Visita</a></li>
@@ -296,7 +306,9 @@
             <form>
                 <input type="text" placeholder="Seu Nome" required>
                 <input type="email" placeholder="Seu Email" required>
-                <input type="tel" placeholder="Seu Telefone" required>
+                <input type="tel" class="tel" placeholder="Seu Telefone" required>
+                <input type="date" class="date" placeholder="Escolha uma data" required>
+                <input type="time" class="time" placeholder="Escolha um horário" required>
                 <button type="submit">Enviar</button>
             </form>
         </div>
@@ -306,7 +318,42 @@
         <p>&copy; 2024 Salão Bar. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script>
+        document.querySelectorAll('nav ul li a').forEach(item => {
+            item.addEventListener('click', event => {
+                document.querySelectorAll('nav ul li a').forEach(item => {
+                    item.classList.remove('active');
+                });
+                event.target.classList.add('active');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.backgroundColor = '#000';
+            } else {
+                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            }
+        });
+
+        document.querySelector('form').addEventListener('submit', event => {
+            event.preventDefault();
+            alert('Formulário enviado com sucesso!');
+            document.querySelectorAll('form input').forEach(item => {
+                item.value = '';
+            });
+        });
+
+        document.querySelector('nav ul li a').classList.add('active');
+        //adc uma mascara no tel
+        var tel = document.querySelector('.tel');
+        tel.addEventListener('input', function (e) {
+            var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
+
+    </script>
 </body>
 
 </html>
