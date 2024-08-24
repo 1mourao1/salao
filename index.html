@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão Bar - Beleza e Relaxamento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('salon-background.jpg') center/cover;
+            text-align: center;
+            padding: 100px 0;
+            color: #fff;
+            animation: fadeIn 2s;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideDown 1s;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #f4f4f4;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #9b59b6;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #f4f4f4;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #e67e22;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #d35400;
+            transform: scale(1.1);
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: rotate(360deg);
+        }
+
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .about-section {
+            background-color: #222;
+        }
+
+        .services-section {
+            background-color: #333;
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service {
+            background-color: #444;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            width: 30%;
+            min-width: 250px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .form-section {
+            background-color: #222;
+        }
+
+        .section-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 500px;
+            margin: auto;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        form input,
+        form button {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form input {
+            background-color: #444;
+            color: #fff;
+        }
+
+        form button {
+            background-color: #e67e22;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        form button:hover {
+            background-color: #d35400;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #333;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            color: #f4f4f4;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="home" class="hero">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#services">Nossos Serviços</a></li>
+                <li><a href="#form-section">Agende uma Visita</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <img src="https://img.freepik.com/fotos-gratis/celebracao-do-oktoberfest-com-cerveja-e-naturezas-mortas_23-2151639990.jpg?t=st=1724458328~exp=1724461928~hmac=8aa81c2473b18b8f40a4990104cfb872fd6c65a5cdae8ffe6a4564001bdb6447&w=1380"
+                alt="Logo Salão Bar" class="logo">
+            <h1>Salão Bar</h1>
+            <p>Onde Beleza e Relaxamento se Encontram</p>
+            <a href="#form-section" class="cta-button">Agende uma Visita</a>
+        </div>
+    </header>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>Sobre Nós</h2>
+            <p>No Salão Bar, combinamos tratamentos de beleza de alta qualidade com um ambiente único e relaxante.
+                Desfrute de coquetéis enquanto cuida da sua beleza.</p>
+            <img src="https://i0.wp.com/gay.tur.br/wp-content/uploads/2023/08/Elevate-Pexels-Casais.jpg?fit=1600%2C1065&ssl=1"
+                alt="Ambiente do Salão Bar" class="section-image">
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="services-container">
+                <div class="service">
+                    <img src="https://img.freepik.com/fotos-gratis/maos-fazendo-maquiagem-e-penteado-de-mulher-jovem-e-bonita_176420-888.jpg?t=st=1724457485~exp=1724461085~hmac=d78230cfc259a0eada8bcecae5eca63f1079c7e93003f951bd30516aa3783aef&w=1380"
+                        alt="Cabelo e Maquiagem">
+                    <h3>Cabelo & Maquiagem</h3>
+                    <p>Transforme seu visual com os melhores especialistas.</p>
+                </div>
+                <div class="service">
+                    <img src="https://img.freepik.com/fotos-gratis/pessoas-a-beber-coqueteis_23-2150168821.jpg?t=st=1724457281~exp=1724460881~hmac=055e566804fd93267ef6bdd4dd74f9327117d29e7a66758bf05bd3c96276245f&w=1380"
+                        alt="Bar e Drinks">
+                    <h3>Bar & Drinks</h3>
+                    <p>Aproveite coquetéis exclusivos enquanto relaxa.</p>
+                </div>
+                <div class="service">
+                    <img src="https://img.freepik.com/fotos-gratis/higiene-e-cuidado-das-unhas-secando-o-esmalte_23-2148766572.jpg?t=st=1724457395~exp=1724460995~hmac=272d1f7d6e71e44eaa06d2f83e28e914f8883e0edd0657f00af0612bf87c2961&w=1380"
+                        alt="Manicure e Pedicure">
+                    <h3>Manicure & Pedicure</h3>
+                    <p>Cuide das suas unhas com tratamentos de luxo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="form-section" class="form-section">
+        <div class="container">
+            <h2>Agende uma Visita</h2>
+            <img src="https://img.freepik.com/fotos-gratis/interior-do-salao-de-cabeleireiro-latino_23-2150555185.jpg?t=st=1724457644~exp=1724461244~hmac=7d94ee3b8eab224152e2247c5ed4ea438e1812a23e6d64a7cd4d6e5f08df476a&w=1380"
+                alt="Contato" class="section-image">
+            <form>
+                <input type="text" placeholder="Seu Nome" required>
+                <input type="email" placeholder="Seu Email" required>
+                <input type="tel" placeholder="Seu Telefone" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Salão Bar. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
